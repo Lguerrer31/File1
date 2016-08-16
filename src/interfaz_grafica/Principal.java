@@ -35,8 +35,8 @@ public class Principal extends javax.swing.JFrame {
         txtn1 = new javax.swing.JTextField();
         txtn2 = new javax.swing.JTextField();
         txtres = new javax.swing.JTextField();
-        cmdcal = new javax.swing.JButton();
-        cmddelete = new javax.swing.JButton();
+        cmdCal = new javax.swing.JButton();
+        cmdDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,6 +56,8 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(txtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 50, -1));
         getContentPane().add(txtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 50, -1));
 
+        txtres.setEditable(false);
+        txtres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtresActionPerformed(evt);
@@ -63,18 +65,28 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(txtres, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 50, -1));
 
-        cmdcal.setText("Calcular");
-        cmdcal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        cmdcal.addActionListener(new java.awt.event.ActionListener() {
+        cmdCal.setText("Calcular");
+        cmdCal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cmdCal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdcalActionPerformed(evt);
+                cmdCalActionPerformed(evt);
             }
         });
-        getContentPane().add(cmdcal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 70, 30));
+        cmdCal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmdCalKeyPressed(evt);
+            }
+        });
+        getContentPane().add(cmdCal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 70, 30));
 
-        cmddelete.setText("Borrar");
-        cmddelete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(cmddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 50, 30));
+        cmdDelete.setText("Borrar");
+        cmdDelete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cmdDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdDeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 50, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,10 +95,36 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtresActionPerformed
 
-    private void cmdcalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalActionPerformed
+    private void cmdCalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalActionPerformed
+        // TODO add your handling code here:
+        String n1, n2, resul;
+        int num1, num2, suma;
+        
+        n1=txtn1.getText();
+        n2=txtn2.getText();
+        
+        num1=Integer.parseInt(n1);
+        num2=Integer.parseInt(n2);
+        
+        suma=num1+num2;
+        
+        resul=String.valueOf(suma);
+        
+        txtres.setText(resul);
+    }//GEN-LAST:event_cmdCalActionPerformed
+
+    private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDeleteActionPerformed
+        // TODO add your handling code here:
+        txtn1.setText("");
+        txtn2.setText("");
+        txtres.setText("");
+        txtn1.requestFocusInWindow();
+    }//GEN-LAST:event_cmdDeleteActionPerformed
+
+    private void cmdCalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmdCalKeyPressed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_cmdcalActionPerformed
+    }//GEN-LAST:event_cmdCalKeyPressed
 
     /**
      * @param args the command line arguments
@@ -124,8 +162,8 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cmdcal;
-    private javax.swing.JButton cmddelete;
+    private javax.swing.JButton cmdCal;
+    private javax.swing.JButton cmdDelete;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
