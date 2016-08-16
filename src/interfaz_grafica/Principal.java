@@ -28,21 +28,65 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        lbltitle = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtn1 = new javax.swing.JTextField();
+        txtn2 = new javax.swing.JTextField();
+        txtres = new javax.swing.JTextField();
+        cmdcal = new javax.swing.JButton();
+        cmddelete = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbltitle.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lbltitle.setText("Suma de dos números");
+        getContentPane().add(lbltitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        jLabel2.setText("Primer Número");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+
+        jLabel3.setText("Segundo Número");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+
+        jLabel4.setText("Resultado");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+        getContentPane().add(txtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 50, -1));
+        getContentPane().add(txtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 50, -1));
+
+        txtres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtresActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtres, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 50, -1));
+
+        cmdcal.setText("Calcular");
+        cmdcal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cmdcal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdcalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmdcal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 70, 30));
+
+        cmddelete.setText("Borrar");
+        cmddelete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(cmddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 50, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtresActionPerformed
+
+    private void cmdcalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cmdcalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +124,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdcal;
+    private javax.swing.JButton cmddelete;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbltitle;
+    private javax.swing.JTextField txtn1;
+    private javax.swing.JTextField txtn2;
+    private javax.swing.JTextField txtres;
     // End of variables declaration//GEN-END:variables
 }
