@@ -88,14 +88,6 @@ public class Principal extends javax.swing.JFrame {
                 cmdCalActionPerformed(evt);
             }
         });
-        cmdCal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                cmdCalKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                cmdCalKeyTyped(evt);
-            }
-        });
         getContentPane().add(cmdCal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 70, 30));
 
         cmdDelete.setText("Borrar");
@@ -183,33 +175,24 @@ public class Principal extends javax.swing.JFrame {
         cmb.setSelectedIndex(0);
     }//GEN-LAST:event_cmdDeleteActionPerformed
 
-    private void cmdCalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmdCalKeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_cmdCalKeyPressed
-
-    private void cmdCalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmdCalKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmdCalKeyTyped
-
     private void txtn1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtn1KeyTyped
         // TODO add your handling code here:
-        char c=evt.getKeyChar();
-        
-        if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
             getToolkit().beep();
-            
+
             evt.consume();
         }
     }//GEN-LAST:event_txtn1KeyTyped
 
     private void txtn2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtn2KeyTyped
         // TODO add your handling code here:
-        char c=evt.getKeyChar();
-        
-        if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
             getToolkit().beep();
-            
+
             evt.consume();
         }
     }//GEN-LAST:event_txtn2KeyTyped
