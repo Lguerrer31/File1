@@ -57,7 +57,19 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel4.setText("Resultado");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+
+        txtn1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtn1KeyTyped(evt);
+            }
+        });
         getContentPane().add(txtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 50, -1));
+
+        txtn2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtn2KeyTyped(evt);
+            }
+        });
         getContentPane().add(txtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 50, -1));
 
         txtres.setEditable(false);
@@ -79,6 +91,9 @@ public class Principal extends javax.swing.JFrame {
         cmdCal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmdCalKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmdCalKeyTyped(evt);
             }
         });
         getContentPane().add(cmdCal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 70, 30));
@@ -113,44 +128,49 @@ public class Principal extends javax.swing.JFrame {
         double num1, num2, operacion;
         int opc;
         
+        txtres.setText("");
+        
         n1 = txtn1.getText();
         n2 = txtn2.getText();
         
-        if (txtn1.getText().trim().isEmpty()){
+        if (txtn1.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite por favor el número 1", "Error", JOptionPane.ERROR_MESSAGE);
             txtn1.requestFocusInWindow();
-        }
-        
-        else if (txtn2.getText().isEmpty()){
+        } else if (txtn2.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite por favor el número 2", "Error", JOptionPane.ERROR_MESSAGE);
             txtn2.requestFocusInWindow();
-        } 
-        
-        else{
-            
-        num1 = Double.parseDouble(txtn1.getText());
-        num2 = Double.parseDouble(txtn2.getText());
-        opc=cmb.getSelectedIndex();
-        
-        switch(opc){
-            case 0:
-                operacion = num1 + num2;
-            break;
-            case 1:
-                operacion = num1 - num2;
-            break;
-            case 2:
-                operacion = num1 * num2;
-            break;
-            case 3:
-               operacion = num1 / num2;
-            break;
-            default:
-                operacion = 0;
-            break;
-        }
-        resul = String.valueOf(operacion);
-        txtres.setText(resul);
+        } else {
+
+            num1 = Double.parseDouble(txtn1.getText());
+            num2 = Double.parseDouble(txtn2.getText());
+            opc = cmb.getSelectedIndex();
+
+            if (opc == 3 && num2 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permite división por cero", "Error", JOptionPane.ERROR_MESSAGE);
+                txtn2.requestFocusInWindow();
+                txtn2.selectAll();
+            } else {
+
+                switch (opc) {
+                    case 0:
+                        operacion = num1 + num2;
+                        break;
+                    case 1:
+                        operacion = num1 - num2;
+                        break;
+                    case 2:
+                        operacion = num1 * num2;
+                        break;
+                    case 3:
+                        operacion = num1 / num2;
+                        break;
+                    default:
+                        operacion = 0;
+                        break;
+                }
+                resul = String.valueOf(operacion);
+                txtres.setText(resul);
+            }
         }
     }//GEN-LAST:event_cmdCalActionPerformed
 
@@ -167,6 +187,32 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_cmdCalKeyPressed
+
+    private void cmdCalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmdCalKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdCalKeyTyped
+
+    private void txtn1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtn1KeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar();
+        
+        if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+            getToolkit().beep();
+            
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtn1KeyTyped
+
+    private void txtn2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtn2KeyTyped
+        // TODO add your handling code here:
+        char c=evt.getKeyChar();
+        
+        if (Character.isAlphabetic(c) || Character.isSpaceChar(c)){
+            getToolkit().beep();
+            
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtn2KeyTyped
 
     /**
      * @param args the command line arguments
