@@ -6,6 +6,8 @@
 
 package interfaz_grafica;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lguerrer17
@@ -114,6 +116,18 @@ public class Principal extends javax.swing.JFrame {
         n1 = txtn1.getText();
         n2 = txtn2.getText();
         
+        if (txtn1.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite por favor el número 1", "Error", JOptionPane.ERROR_MESSAGE);
+            txtn1.requestFocusInWindow();
+        }
+        
+        else if (txtn2.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite por favor el número 2", "Error", JOptionPane.ERROR_MESSAGE);
+            txtn2.requestFocusInWindow();
+        } 
+        
+        else{
+            
         num1 = Double.parseDouble(txtn1.getText());
         num2 = Double.parseDouble(txtn2.getText());
         opc=cmb.getSelectedIndex();
@@ -137,6 +151,7 @@ public class Principal extends javax.swing.JFrame {
         }
         resul = String.valueOf(operacion);
         txtres.setText(resul);
+        }
     }//GEN-LAST:event_cmdCalActionPerformed
 
     private void cmdDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDeleteActionPerformed
