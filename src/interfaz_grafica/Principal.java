@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package interfaz_grafica;
 
 import javax.swing.JOptionPane;
@@ -57,19 +56,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel4.setText("Resultado");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
-
-        txtn1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtn1KeyTyped(evt);
-            }
-        });
         getContentPane().add(txtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 50, -1));
-
-        txtn2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtn2KeyTyped(evt);
-            }
-        });
         getContentPane().add(txtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 50, -1));
 
         txtres.setEditable(false);
@@ -107,7 +94,8 @@ public class Principal extends javax.swing.JFrame {
         lblOperacion.setText("Operación");
         getContentPane().add(lblOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        pack();
+        setSize(new java.awt.Dimension(418, 302));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresActionPerformed
@@ -119,12 +107,12 @@ public class Principal extends javax.swing.JFrame {
         String n1, n2, resul;
         double num1, num2, operacion;
         int opc;
-        
+
         txtres.setText("");
-        
+
         n1 = txtn1.getText();
         n2 = txtn2.getText();
-        
+
         if (txtn1.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite por favor el número 1", "Error", JOptionPane.ERROR_MESSAGE);
             txtn1.requestFocusInWindow();
@@ -174,28 +162,6 @@ public class Principal extends javax.swing.JFrame {
         txtn1.requestFocusInWindow();
         cmb.setSelectedIndex(0);
     }//GEN-LAST:event_cmdDeleteActionPerformed
-
-    private void txtn1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtn1KeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-
-        if (!Character.isDigit(c)) {
-            getToolkit().beep();
-
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtn1KeyTyped
-
-    private void txtn2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtn2KeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-
-        if (!Character.isDigit(c)) {
-            getToolkit().beep();
-
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtn2KeyTyped
 
     /**
      * @param args the command line arguments
